@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GPA calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
+    />
+    <!-- https://fonts.google.com/specimen/Open+Sans -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <!-- https://fontawesome.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- https://getbootstrap.com/ -->
+
+    <link
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="bg02">
+    <div class="container">
+      <div class="row tm-mt-big">
+        <div class="col-xl-8 col-lg-10 col-md-12 col-sm-12">
+          <div class="bg-white tm-block">
+            <div class="row">
+              <div class="col-12">
+                <i class="fas fa-calculator"></i>
+                <h2 class="tm-block-title d-inline-block">Your Scores</h2>
+              </div>
+            </div>
+            <div class="row mt-4 tm-edit-product-row">
+              <div class="col-xl-7 col-lg-7 col-md-12">
+                <form action="" class="tm-edit-product-form">
+                  <div class="input-group mb-3">
+                    <label
+                      for="category"
+                      class="col-xl-4 col-lg-4 col-md-4 col-sm-5 col-form-label"
+                      >Subject</label
+                    >
+                    <input
+                      id="subject_name"
+                      name ="subject_name"
+                      type="text"
+                      class="form-control validate col-xl-4 col-lg-4 col-md-7 col-sm-7"
+                      placeholder="Name"
+                    />
+                    <input
+                      id="subject_score"
+                      name="subject_score"
+                      type="number"
+                      class="form-control validate col-xl-4 col-lg-4 col-md-7 col-sm-7"
+                      placeholder="Score"
+                      min="0"
+                      max="10"
+                    />
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <div
+                      class="ml-auto col-xl-8 col-lg-8 col-md-8 col-sm-7 pl-0"
+                    >
+                      <button type="submit" class="btn add-btn btn-primary" id="btn">
+                        Add Subject
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-xl-4 col-lg-4 col-md-12 mx-auto mb-4">
+                <div class="tm-product-img-dummy mx-auto">
+                  <i
+                    class="fas fa-5x fa-cloud-upload-alt"
+                    onclick="document.getElementById('fileInput').click();"
+                  ></i>
+                </div>
+                <div class="custom-file mt-3 mb-3">
+                  <input id="fileInput" type="file" style="display: none" />
+                  <input
+                    type="button"
+                    class="btn btn-primary d-block mx-auto"
+                    value="Upload ..."
+                    onclick="document.getElementById('fileInput').click();"
+                  />
+                </div>
+              </div>
+              <div class="subject">
+                <h2 class="subject__title">Subjects</h2>
+                <div class="subject__list">
+<!-- <div class="item clearfix" id="subject-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>  -->
+
+                  <!-- <div class="item clearfix" id="subject-1">
+                    <div class="item__description">SWR</div>
+                    <div class="right clearfix">
+                      <div class="item__value">10</div>
+                      <div class="item__delete">
+                        <button class="item__delete--btn">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+              <div class="GPA-container">
+                <div>
+                  <h3>Education USA GPAs</h3>
+                  <p class="item__usa">Add subjects for GPA calculation</p><br>
+                </div>
+                <div>
+                  <h3>Standardized Convert University GPAs</h3>
+                  <p class="item__standard">Add subjects for GPA calculation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="row tm-mt-big">
+        <div class="col-12 font-weight-light">
+          <p class="d-inline-block tm-bg-black text-white py-2 px-4">
+            Created by
+            <a
+              rel="nofollow"
+              href="https://github.com/truonganh123"
+              class="text-white tm-footer-link"
+              >Trường Anh</a
+            >
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
