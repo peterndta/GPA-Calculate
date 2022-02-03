@@ -10,37 +10,42 @@ const Subject = function (event) {
   var html, newHtml, fields, fieldsArr, ID;
   const nameValue = subjectName.value;
   const scoreValue = parseFloat(subjectScore.value);
-  if (subjectList.length > 0) {
-    ID = subjectList[subjectList.length - 1].id + 1;
-  } else {
-    ID = 0;
+  if(nameValue == null || nameValue == "" || scoreValue == null || isNaN(scoreValue)){
+    alert("Please Fill All Required Field");
+    return false;
+  }else{
+    if (subjectList.length > 0) {
+      ID = subjectList[subjectList.length - 1].id + 1;
+    } else {
+      ID = 0;
+    }
+  
+    const subject = {
+      id: ID,
+      name: nameValue,
+      score: scoreValue,
+    };
+    subjectList.push(subject);
+  
+    html =
+      '<div class="item clearfix" id="subject-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="fa fa-trash"></i></button></div></div></div>';
+    newHtml = html.replace('%id%', subject.id);
+    newHtml = newHtml.replace("%description%", subject.name);
+    newHtml = newHtml.replace("%value%", subject.score);
+    document.querySelector(".subject__list").insertAdjacentHTML("beforeend", newHtml);
+  
+    const gpa = GPA(subjectList);
+    updateUsaGPA(gpa);
+    updateStandardGPA(gpa);
+  
+    fields = document.querySelectorAll("#subject_name" + ", " + "#subject_score");
+    var fieldsArr = Array.prototype.slice.call(fields);
+  
+    fieldsArr.forEach(function (current, index, array) {
+      current.value = "";
+    });
+    fieldsArr[0].focus();
   }
-
-  const subject = {
-    id: ID,
-    name: nameValue,
-    score: scoreValue,
-  };
-  subjectList.push(subject);
-
-  html =
-    '<div class="item clearfix" id="subject-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="fa fa-trash"></i></button></div></div></div>';
-  newHtml = html.replace('%id%', subject.id);
-  newHtml = newHtml.replace("%description%", subject.name);
-  newHtml = newHtml.replace("%value%", subject.score);
-  document.querySelector(".subject__list").insertAdjacentHTML("beforeend", newHtml);
-
-  const gpa = GPA(subjectList);
-  updateUsaGPA(gpa);
-  updateStandardGPA(gpa);
-
-  fields = document.querySelectorAll("#subject_name" + ", " + "#subject_score");
-  var fieldsArr = Array.prototype.slice.call(fields);
-
-  fieldsArr.forEach(function (current, index, array) {
-    current.value = "";
-  });
-  fieldsArr[0].focus();
 };
 
 const GPA = (scores) => {
