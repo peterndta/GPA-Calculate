@@ -10,7 +10,7 @@ const Subject = function (event) {
   var html, newHtml, fields, fieldsArr, ID;
   const nameValue = subjectName.value;
   const scoreValue = parseFloat(subjectScore.value);
-  if(nameValue == null || nameValue == "" || scoreValue == null || isNaN(scoreValue)){
+  if(scoreValue == null || isNaN(scoreValue)){
     alert("Please Fill All Required Field");
     return false;
   }else{
