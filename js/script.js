@@ -11,7 +11,7 @@ const Subject = function (event) {
   const nameValue = subjectName.value;
   const scoreValue = parseFloat(subjectScore.value);
   if(scoreValue == null || isNaN(scoreValue)){
-    alert("Please Fill All Required Field");
+    alert("Score Cannot Be Empty");
     return false;
   }else{
     if (subjectList.length > 0) {
