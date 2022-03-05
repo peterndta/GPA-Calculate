@@ -1,2 +1,2 @@
 # GPA-Calculate
-View: https://truonganh123.github.io/GPA-Calculate/
+View: https://peterndta.github.io/GPA-Calculate/
